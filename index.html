@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="id" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latif Safruddin | Profil & Portofolio Pribadi</title>
+    <meta name="description" content="Website pribadi Latif Safruddin. Menjaga harmoni budaya Jawa dan inovasi masa depan.">
+    <meta name="theme-color" content="#1a1311">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class', // Mengaktifkan mode dark/light via class
+            theme: {
+                extend: {
+                    colors: {
+                        jawa: {
+                            dark: '#140f0c',
+                            brown: '#2C1E16',
+                            gold: '#D4AF37',
+                            goldlight: '#F3E5AB',
+                            cream: '#FDFBF7'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Pengaturan Bahasa - Sembunyikan bahasa yang tidak aktif */
+        body:not(.lang-id) .lang-id { display: none !important; }
+        body:not(.lang-en) .lang-en { display: none !important; }
+        body:not(.lang-jv) .lang-jv { display: none !important; }
+
+        /* Custom Background Pattern */
+        .bg-batik {
+            /* Mode Terang */
+            background-color: #FDFBF7;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l1.43 1.43-28.56 28.56L56.06 58.55l-1.43 1.43-28.56-28.56L-2.49 59.98l-1.43-1.43L24.64 30 .08 1.43 1.51 0l24.56 24.56L54.627 0zM30 60C13.431 60 0 46.569 0 30S13.431 0 30 0s30 13.431 30 30-13.431 30-30 30zm0-2c15.464 0 28-12.536 28-28S45.464 2 30 2 2 14.536 2 30s12.536 28 28 28z' fill='%23D4AF37' fill-opacity='0.08' fill-rule='evenodd'/%3E%3C/svg%3E");
+            transition: background-color 0.5s ease;
+        }
+        .dark .bg-batik {
+            /* Mode Gelap */
+            background-color: #140f0c;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l1.43 1.43-28.56 28.56L56.06 58.55l-1.43 1.43-28.56-28.56L-2.49 59.98l-1.43-1.43L24.64 30 .08 1.43 1.51 0l24.56 24.56L54.627 0zM30 60C13.431 60 0 46.569 0 30S13.431 0 30 0s30 13.431 30 30-13.431 30-30 30zm0-2c15.464 0 28-12.536 28-28S45.464 2 30 2 2 14.536 2 30s12.536 28 28 28z' fill='%23D4AF37' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+        }
+
+        /* Glassmorphism */
+        .glass-panel {
+            background: rgba(253, 251, 247, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        .dark .glass-panel {
+            background: rgba(44, 30, 22, 0.6);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: none;
+        }
+        .glass-nav.glass-panel {
+            background: rgba(253, 251, 247, 0.95);
+        }
+        .dark .glass-nav.glass-panel {
+            background: rgba(20, 15, 12, 0.95);
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.2s; }
+        .reveal-delay-2 { transition-delay: 0.4s; }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f0eadd; }
+        .dark ::-webkit-scrollbar-track { background: #140f0c; }
+        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #F3E5AB; }
+
+        /* Logo Adjustment */
+        .logo-img {
+            filter: drop-shadow(0px 0px 4px rgba(212, 175, 55, 0.6));
+            transition: transform 0.3s ease;
+        }
+        .dark .logo-img {
+            filter: drop-shadow(0px 0px 4px rgba(212, 175, 55, 0.4));
+            /* Jika logo terlalu gelap di mode gelap, tambahkan invert atau brightness di sini */
+            brightness(1.2); 
+        }
+        .logo-img:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body class="lang-id bg-batik text-jawa-dark dark:text-jawa-cream font-sans antialiased overflow-x-hidden selection:bg-jawa-gold selection:text-jawa-dark transition-colors duration-500">
+
+    <nav class="fixed w-full z-50 transition-all duration-300 glass-nav" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <img src="WhatsApp_Image_2026-02-27_at_05.30.13-removebg-preview.png" alt="Logo Latif Safruddin" class="h-12 w-auto logo-img object-contain">
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-6 items-center">
+                    <a href="#beranda" class="text-jawa-dark dark:text-jawa-cream hover:text-jawa-gold dark:hover:text-jawa-gold transition-colors text-sm uppercase tracking-wider font-medium">
+                        <span class="lang-id">Beranda</span><span class="lang-en">Home</span><span class="lang-jv">Beranda</span>
+                    </a>
+                    <a href="#profil" class="text-jawa-dark dark:text-jawa-cream hover:text-jawa-gold dark:hover:text-jawa-gold transition-colors text-sm uppercase tracking-wider font-medium">
+                        <span class="lang-id">Profil</span><span class="lang-en">Profile</span><span class="lang-jv">Profil</span>
+                    </a>
+                    <a href="#karya" class="text-jawa-dark dark:text-jawa-cream hover:text-jawa-gold dark:hover:text-jawa-gold transition-colors text-sm uppercase tracking-wider font-medium">
+                        <span class="lang-id">Karya Buku</span><span class="lang-en">Books</span><span class="lang-jv">Buku</span>
+                    </a>
+                    <a href="#ebook" class="text-jawa-dark dark:text-jawa-cream hover:text-jawa-gold dark:hover:text-jawa-gold transition-colors text-sm uppercase tracking-wider font-medium">
+                        <span class="lang-id">Ebook</span><span class="lang-en">Ebooks</span><span class="lang-jv">Ebook</span>
+                    </a>
+                    <a href="#karya-digital" class="text-jawa-dark dark:text-jawa-cream hover:text-jawa-gold dark:hover:text-jawa-gold transition-colors text-sm uppercase tracking-wider font-medium">
+                        <span class="lang-id">Digital</span><span class="lang-en">Digital</span><span class="lang-jv">Digital</span>
+                    </a>
+                    
+                    <!-- Language & Theme Toggles -->
+                    <div class="flex items-center gap-3 pl-4 border-l border-jawa-gold/30">
+                        <select id="lang-selector" class="bg-transparent text-jawa-dark dark:text-jawa-cream text-sm font-semibold outline-none cursor-pointer">
+                            <option value="id" class="text-black">ID (Ind)</option>
+                            <option value="en" class="text-black">EN (Eng)</option>
+                            <option value="jv" class="text-black">JV (Jawa)</option>
+                        </select>
+                        <button id="theme-toggle" class="text-jawa-dark dark:text-jawa-cream hover:text-jawa-gold transition-colors text-lg focus:outline-none ml-2">
+                            <i class="fas fa-moon dark:hidden"></i>
+                            <i class="fas fa-sun hidden dark:inline"></i>
+                        </button>
+                    </div>
+
+                    <a href="#kontak" class="ml-4 px-4 py-2 border border-jawa-gold text-jawa-gold hover:bg-jawa-gold hover:text-white dark:hover:text-jawa-dark transition-all rounded-sm text-sm uppercase tracking-wider font-semibold">
+                        <span class="lang-id">Kontak</span><span class="lang-en">Contact</span><span class="lang-jv">Kontak</span>
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="lg:hidden flex items-center gap-4">
+                    <button id="theme-toggle-mobile" class="text-jawa-dark dark:text-jawa-cream hover:text-jawa-gold transition-colors text-lg focus:outline-none">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:inline"></i>
+                    </button>
+                    <select id="lang-selector-mobile" class="bg-transparent text-jawa-dark dark:text-jawa-cream text-sm font-semibold outline-none cursor-pointer">
+                        <option value="id" class="text-black">ID</option>
+                        <option value="en" class="text-black">EN</option>
+                        <option value="jv" class="text-black">JV</option>
+                    </select>
+                    <button id="mobile-menu-btn" class="text-jawa-dark dark:text-jawa-cream hover:text-jawa-gold focus:outline-none ml-2">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden lg:hidden glass-panel border-t border-jawa-gold/20 absolute w-full">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <a href="#beranda" class="block px-3 py-3 text-jawa-dark dark:text-jawa-cream hover:text-jawa-gold uppercase tracking-widest text-sm"><span class="lang-id">Beranda</span><span class="lang-en">Home</span><span class="lang-jv">Beranda</span></a>
+                <a href="#profil" class="block px-3 py-3 text-jawa-dark dark:text-jawa-cream hover:text-jawa-gold uppercase tracking-widest text-sm"><span class="lang-id">Profil</span><span class="lang-en">Profile</span><span class="lang-jv">Profil</span></a>
+                <a href="#karya" class="block px-3 py-3 text-jawa-dark dark:text-jawa-cream hover:text-jawa-gold uppercase tracking-widest text-sm"><span class="lang-id">Karya Buku</span><span class="lang-en">Books</span><span class="lang-jv">Buku</span></a>
+                <a href="#karya-digital" class="block px-3 py-3 text-jawa-dark dark:text-jawa-cream hover:text-jawa-gold uppercase tracking-widest text-sm"><span class="lang-id">Karya Digital</span><span class="lang-en">Digital Works</span><span class="lang-jv">Karya Digital</span></a>
+                <a href="#kontak" class="block px-3 py-3 text-jawa-gold font-bold uppercase tracking-widest text-sm"><span class="lang-id">Kontak WA</span><span class="lang-en">Contact WA</span><span class="lang-jv">Kontak WA</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="beranda" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-jawa-gold/10 dark:bg-jawa-gold/5 rounded-full blur-[100px] -z-10"></div>
+        
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center">
+            
+            <div class="w-32 h-32 md:w-48 md:h-48 mb-8 text-jawa-gold opacity-90 animate-float">
+                <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full drop-shadow-2xl">
+                    <path d="M50 5 C65 30 95 65 95 95 C95 105 85 115 50 115 C15 115 5 105 5 95 C5 65 35 30 50 5 Z" stroke="currentColor" stroke-width="2" fill="rgba(212, 175, 55, 0.1)"/>
+                    <path d="M50 20 C60 40 80 65 80 85 C80 95 65 105 50 105 C35 105 20 95 20 85 C20 65 40 40 50 20 Z" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M50 40 C55 55 65 70 65 80 C65 88 58 95 50 95 C42 95 35 88 35 80 C35 70 45 55 50 40 Z" stroke="currentColor" stroke-width="1"/>
+                    <path d="M50 95 L50 60 M50 75 L60 65 M50 75 L40 65 M50 85 L62 78 M50 85 L38 78" stroke="currentColor" stroke-width="1"/>
+                    <path d="M25 115 L75 115 M35 120 L65 120" stroke="currentColor" stroke-width="2"/>
+                </svg>
+            </div>
+
+            <p class="text-jawa-gold uppercase tracking-[0.3em] text-sm md:text-base font-semibold mb-4 reveal">
+                <span class="lang-id">Sugeng Rawuh</span>
+                <span class="lang-en">Welcome</span>
+                <span class="lang-jv">Sugeng Rawuh</span>
+            </p>
+            
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold text-jawa-dark dark:text-jawa-cream mb-6 reveal reveal-delay-1 leading-tight">
+                Latif <span class="text-jawa-gold">Safruddin</span>
+            </h1>
+            
+            <p class="text-lg md:text-xl text-gray-700 dark:text-gray-400 font-light max-w-2xl mx-auto mb-10 reveal reveal-delay-2">
+                <span class="lang-id">"Menjaga akar tradisi dan kelestarian alam Jawa, merajut langkah inovasi menuju masa depan yang harmonis."</span>
+                <span class="lang-en">"Preserving the roots of Javanese tradition and nature, weaving innovative steps towards a harmonious future."</span>
+                <span class="lang-jv">"Njagi oyod tradisi lan kelestarian alam Jawa, ngrakit lampah inovasi tumuju masa depan ingkang harmonis."</span>
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center reveal reveal-delay-2">
+                <a href="https://wa.me/628551236277" target="_blank" class="px-8 py-4 bg-jawa-gold text-white dark:text-jawa-dark font-bold rounded-sm hover:bg-jawa-goldlight transition-all shadow-[0_0_20px_rgba(212,175,55,0.4)] flex items-center justify-center gap-2">
+                    <i class="fab fa-whatsapp text-xl"></i> 
+                    <span class="lang-id">Hubungi WhatsApp</span>
+                    <span class="lang-en">WhatsApp Me</span>
+                    <span class="lang-jv">Hubungi WhatsApp</span>
+                </a>
+                <a href="#profil" class="px-8 py-4 border border-jawa-gold/50 text-jawa-dark dark:text-jawa-cream hover:border-jawa-gold hover:text-jawa-gold transition-all rounded-sm flex items-center justify-center bg-white/50 dark:bg-transparent">
+                    <span class="lang-id">Jelajahi Profil</span>
+                    <span class="lang-en">Explore Profile</span>
+                    <span class="lang-jv">Jelajahi Profil</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+            <a href="#profil" class="text-jawa-gold opacity-70 hover:opacity-100">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <section id="profil" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                
+                <div class="w-full lg:w-1/2 reveal">
+                    <div class="relative p-2 border-2 border-jawa-gold/50 dark:border-jawa-gold/30 rounded-sm bg-white/50 dark:bg-jawa-dark/50 shadow-lg dark:shadow-none">
+                        <div class="absolute -top-2 -left-2 w-4 h-4 border-t-2 border-l-2 border-jawa-gold"></div>
+                        <div class="absolute -top-2 -right-2 w-4 h-4 border-t-2 border-r-2 border-jawa-gold"></div>
+                        <div class="absolute -bottom-2 -left-2 w-4 h-4 border-b-2 border-l-2 border-jawa-gold"></div>
+                        <div class="absolute -bottom-2 -right-2 w-4 h-4 border-b-2 border-r-2 border-jawa-gold"></div>
+                        <img src="file_0000000069b07207bff806638fc5f173.png" alt="Potret Latif Safruddin" class="w-full h-auto object-contain rounded-sm">
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-1/2 reveal reveal-delay-1">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="h-px bg-jawa-gold flex-grow"></div>
+                        <h2 class="font-serif text-3xl md:text-4xl text-jawa-gold">
+                            <span class="lang-id">Profil Singkat</span>
+                            <span class="lang-en">Short Profile</span>
+                            <span class="lang-jv">Profil Cekak</span>
+                        </h2>
+                        <div class="h-px bg-jawa-gold w-12"></div>
+                    </div>
+                    
+                    <h3 class="text-2xl md:text-3xl font-bold text-jawa-dark dark:text-white mb-6 leading-tight">
+                        <span class="lang-id">Penggerak Transformasi Digital & Artificial Intelligence</span>
+                        <span class="lang-en">Driver of Digital Transformation & Artificial Intelligence</span>
+                        <span class="lang-jv">Panggerak Transformasi Digital & Artificial Intelligence</span>
+                    </h3>
+                    
+                    <div class="space-y-4 text-gray-700 dark:text-gray-300 font-light leading-relaxed text-justify">
+                        <p>
+                            <span class="lang-id"><strong>Latif Safruddin</strong> adalah praktisi digital marketing, pengelola media digital, serta pegiat transformasi digital desa yang memiliki ketertarikan besar pada pemanfaatan <em>Artificial Intelligence</em> (AI) untuk meningkatkan produktivitas, pelayanan publik, dan pengembangan bisnis.</span>
+                            <span class="lang-en"><strong>Latif Safruddin</strong> is a digital marketing practitioner, digital media manager, and village digital transformation activist with a strong interest in utilizing Artificial Intelligence (AI) to enhance productivity, public services, and business development.</span>
+                            <span class="lang-jv"><strong>Latif Safruddin</strong> inggih punika praktisi digital marketing, pangarsa media digital, saha pegiat transformasi digital desa ingkang kagungan kawigatosan ageng ing babagan <em>Artificial Intelligence</em> (AI) kagem ningkataken produktivitas, peladosan publik, lan pangrembakaning bisnis.</span>
+                        </p>
+
+                        <p>
+                            <span class="lang-id">Ia merupakan <em>Founder & Owner</em> PT Digital Marketing Indonesia, Cerita Kita Publisher, Jasa Kelola Medsos, dan Media Desa Online, sebuah portal berita yang berfokus pada publikasi pembangunan desa, UMKM, pemerintahan desa, serta berbagai kisah inspiratif dari seluruh Indonesia.</span>
+                            <span class="lang-en">He is the Founder & Owner of PT Digital Marketing Indonesia, Cerita Kita Publisher, Jasa Kelola Medsos, and Media Desa Online, a news portal focusing on publications of village development, SMEs, village governments, and inspiring stories from across Indonesia.</span>
+                            <span class="lang-jv">Panjenenganipun minangka <em>Founder & Owner</em> PT Digital Marketing Indonesia, Cerita Kita Publisher, Jasa Kelola Medsos, lan Media Desa Online, satunggaling portal pawarta ingkang fokus ing publikasi pambangunan desa, UMKM, pamarintahan desa, saha cariyos inspiratif saking nuswantara.</span>
+                        </p>
+
+                        <p>
+                            <span class="lang-id">Dengan pengalaman di bidang pemberdayaan masyarakat, komunikasi digital, dan tata kelola pemerintahan desa, Latif aktif membantu instansi pemerintah, desa, BUMDes, UMKM, komunitas, dan pelaku usaha membangun citra profesional melalui strategi digital marketing, pengelolaan media sosial, pembuatan website, publikasi berita, hingga implementasi teknologi berbasis AI.</span>
+                            <span class="lang-en">With experience in community empowerment, digital communication, and village governance, Latif actively assists government agencies, villages, BUMDes, SMEs, communities, and business owners in building a professional image through digital marketing strategies, social media management, website creation, news publication, to the implementation of AI-based technology.</span>
+                            <span class="lang-jv">Kanthi pangalaman ing babagan pamberdayaan masyarakat, komunikasi digital, lan tata kelola pamarintahan desa, Latif aktif mbantu instansi pamarintah, desa, BUMDes, UMKM, komunitas, lan pelaku usaha mbangun citra profesional lumantar strategi digital marketing, pangelolaan media sosial, damel website, publikasi pawarta, ngantos implementasi teknologi adhedhasar AI.</span>
+                        </p>
+
+                        <p>
+                            <span class="lang-id">Selain sebagai entrepreneur, Latif juga dikenal sebagai sosok yang konsisten mendorong literasi digital dan pemanfaatan kecerdasan buatan untuk mempercepat transformasi pelayanan publik dan pengembangan ekonomi desa. Baginya, teknologi bukan sekadar alat, tetapi jembatan untuk menciptakan inovasi, efisiensi, dan peluang baru bagi masyarakat.</span>
+                            <span class="lang-en">Besides being an entrepreneur, Latif is also known as a figure who consistently promotes digital literacy and the use of artificial intelligence to accelerate the transformation of public services and village economic development. For him, technology is not just a tool, but a bridge to create innovation, efficiency, and new opportunities for society.</span>
+                            <span class="lang-jv">Kajawi minangka entrepreneur, Latif ugi dipuntepang minangka paraga ingkang konsisten nyengkuyung literasi digital lan pemanfaatan kacerdasan buatan kagem nyepetaken transformasi peladosan publik lan ekonomi desa. Kagem panjenenganipun, teknologi sanes namung piranti, nanging wot kagem nyiptakaken inovasi, efisiensi, lan kalodhangan enggal kagem masyarakat.</span>
+                        </p>
+
+                        <div class="mt-6 p-5 border-l-4 border-jawa-gold bg-jawa-gold/5 dark:bg-jawa-gold/10 rounded-r-md">
+                            <p class="font-semibold text-jawa-dark dark:text-jawa-cream mb-3 leading-relaxed">
+                                <span class="lang-id"><span class="text-jawa-gold uppercase tracking-widest text-xs block mb-1">Visi</span>Menjadi penggerak transformasi digital yang menghubungkan teknologi, media, dan inovasi demi terwujudnya desa, bisnis, dan masyarakat yang lebih maju.</span>
+                                <span class="lang-en"><span class="text-jawa-gold uppercase tracking-widest text-xs block mb-1">Vision</span>To become a driver of digital transformation connecting technology, media, and innovation to realize advanced villages, businesses, and communities.</span>
+                                <span class="lang-jv"><span class="text-jawa-gold uppercase tracking-widest text-xs block mb-1">Visi</span>Dados panggerak transformasi digital ingkang ngubungaken teknologi, media, lan inovasi kagem mujudaken desa, bisnis, lan masyarakat ingkang langkung majeng.</span>
+                            </p>
+                            <p class="italic text-jawa-gold font-serif text-lg border-t border-jawa-gold/20 pt-3">
+                                "Empowering People Through Digital Innovation & Artificial Intelligence."
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 grid grid-cols-2 gap-6 border-t border-jawa-gold/30 dark:border-jawa-gold/20 pt-8">
+                        <div>
+                            <p class="text-sm text-jawa-gold uppercase tracking-wider mb-1">
+                                <span class="lang-id">Domisili</span><span class="lang-en">Location</span><span class="lang-jv">Papan Dalem</span>
+                            </p>
+                            <p class="text-jawa-dark dark:text-white font-medium"><i class="fas fa-map-marker-alt mr-2 text-jawa-gold/70"></i>Sleman, DI Yogyakarta</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-jawa-gold uppercase tracking-wider mb-1">
+                                <span class="lang-id">Kontak</span><span class="lang-en">Contact</span><span class="lang-jv">Kontak</span>
+                            </p>
+                            <p class="text-jawa-dark dark:text-white font-medium"><i class="fas fa-phone-alt mr-2 text-jawa-gold/70"></i>0855-1236-277</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="karya" class="py-24 relative overflow-hidden bg-white dark:bg-jawa-dark transition-colors duration-500">
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-jawa-gold/50 dark:via-jawa-gold/30 to-transparent"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <div class="flex items-center justify-center gap-4 mb-4">
+                    <div class="h-px bg-jawa-gold w-12"></div>
+                    <h2 class="font-serif text-4xl md:text-5xl text-jawa-gold">
+                        <span class="lang-id">Karya Tulisan (Buku)</span>
+                        <span class="lang-en">Published Books</span>
+                        <span class="lang-jv">Karya Pustaka (Buku)</span>
+                    </h2>
+                    <div class="h-px bg-jawa-gold w-12"></div>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    <span class="lang-id">Menuangkan pemikiran, pengalaman, dan jejak langkah ke dalam lembaran inspirasi untuk generasi masa depan.</span>
+                    <span class="lang-en">Pouring thoughts, experiences, and footsteps into pages of inspiration for future generations.</span>
+                    <span class="lang-jv">Nganggit pamikiran, pangalaman, lan tapak asma ing lambaran inspirasi kagem generasi penerus.</span>
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Book 1 -->
+                <div class="glass-panel rounded-lg overflow-hidden flex flex-col hover:border-jawa-gold/50 transition-colors duration-300 reveal group shadow-lg dark:shadow-none">
+                    <div class="relative h-80 overflow-hidden bg-gray-200 dark:bg-jawa-brown">
+                        <img src="WhatsApp Image 2026-05-07 at 06.36.09.jpeg" alt="Buku 15 Tahun Mengabdi" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-white dark:from-jawa-dark via-transparent to-transparent opacity-90"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <span class="inline-block px-3 py-1 bg-white/80 dark:bg-jawa-gold/20 text-jawa-dark dark:text-jawa-gold border border-jawa-gold/30 text-xs uppercase tracking-wider rounded-sm mb-2 backdrop-blur-sm">Pengabdian & Sejarah</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="font-serif text-xl font-bold text-jawa-dark dark:text-jawa-cream mb-2 line-clamp-2 group-hover:text-jawa-gold transition-colors">15 Tahun Catatan Perjalanan Mengabdi di Desa Sumberejo</h3>
+                        <p class="text-gray-700 dark:text-gray-400 text-sm leading-relaxed mb-4 flex-grow line-clamp-4">
+                            <span class="lang-id">Mencatat jejak langkah, tantangan, dan pembelajaran selama 15 tahun (2012-2026) sebagai BPD. Sebuah dedikasi tanpa batas dari desa, untuk desa.</span>
+                            <span class="lang-en">Documenting the footsteps, challenges, and lessons learned during 15 years (2012-2026) of service in the village council. Limitless dedication.</span>
+                            <span class="lang-jv">Nyathet lampah, tantangan, lan pasinaon salami 15 taun (2012-2026) minangka BPD. Setunggaling pisungsung tanpa wates saking desa, kagem desa.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Book 2 -->
+                <div class="glass-panel rounded-lg overflow-hidden flex flex-col hover:border-jawa-gold/50 transition-colors duration-300 reveal reveal-delay-1 group shadow-lg dark:shadow-none">
+                    <div class="relative h-80 overflow-hidden bg-gray-200 dark:bg-jawa-brown">
+                        <img src="ChatGPT Image 7 Mei 2026, 08.04.12.png" alt="Buku Noto Ati Resiki Ati" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-white dark:from-jawa-dark via-transparent to-transparent opacity-90"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <span class="inline-block px-3 py-1 bg-white/80 dark:bg-jawa-gold/20 text-jawa-dark dark:text-jawa-gold border border-jawa-gold/30 text-xs uppercase tracking-wider rounded-sm mb-2 backdrop-blur-sm">Spiritual & Refleksi</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="font-serif text-xl font-bold text-jawa-dark dark:text-jawa-cream mb-2 line-clamp-2 group-hover:text-jawa-gold transition-colors">Noto Ati Resiki Ati</h3>
+                        <p class="text-gray-700 dark:text-gray-400 text-sm leading-relaxed mb-4 flex-grow line-clamp-4">
+                            <span class="lang-id">Menata hati, membersihkan jiwa di era modern. Kajian yang menyentuh hati agar menjauhi penyakit hati seperti riya', hasad, ujub, dan takabur.</span>
+                            <span class="lang-en">Managing the heart, cleansing the soul in the modern era. A touching study to avoid spiritual diseases like envy, pride, and arrogance.</span>
+                            <span class="lang-jv">Nata ati, ngresiki jiwa ing era modern. Panyaruwe ingkang ndemok manah supados nebihi lelara ati kados riya', hasad, ujub, lan takabur.</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Book 3 -->
+                <div class="glass-panel rounded-lg overflow-hidden flex flex-col hover:border-jawa-gold/50 transition-colors duration-300 reveal reveal-delay-2 group shadow-lg dark:shadow-none">
+                    <div class="relative h-80 overflow-hidden bg-gray-200 dark:bg-jawa-brown">
+                        <img src="WhatsApp Image 2026-05-07 at 06.01.06.jpeg" alt="Buku Dapur Barokah Sleman" class="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-white dark:from-jawa-dark via-transparent to-transparent opacity-90"></div>
+                        <div class="absolute bottom-4 left-4 right-4">
+                            <span class="inline-block px-3 py-1 bg-white/80 dark:bg-jawa-gold/20 text-jawa-dark dark:text-jawa-gold border border-jawa-gold/30 text-xs uppercase tracking-wider rounded-sm mb-2 backdrop-blur-sm">Bisnis & Inspirasi</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="font-serif text-xl font-bold text-jawa-dark dark:text-jawa-cream mb-2 line-clamp-2 group-hover:text-jawa-gold transition-colors">Dapur Barokah Sleman</h3>
+                        <p class="text-gray-700 dark:text-gray-400 text-sm leading-relaxed mb-4 flex-grow line-clamp-4">
+                            <span class="lang-id">Kisah nyata tentang ketangguhan, kegigihan, & keberkahan. Perjalanan inspiratif dari tukang parkir hingga pengusaha sukses bisnis kuliner.</span>
+                            <span class="lang-en">A true story of resilience, persistence, & blessings. An inspiring journey from a parking attendant to a successful culinary entrepreneur.</span>
+                            <span class="lang-jv">Cariyos nyata babagan ketangguhan lan keberkahan. Lampah inspiratif saking tukang parkir dados pengusaha sukses ing bisnis kuliner.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center reveal">
+                <a href="https://wa.me/628551236277?text=Halo%20Bapak%20Latif,%20saya%20tertarik%20dengan%20buku%20karya%20Bapak." target="_blank" class="inline-flex items-center gap-3 px-8 py-4 border border-jawa-gold text-jawa-dark dark:text-jawa-gold hover:bg-jawa-gold hover:text-white dark:hover:text-jawa-dark transition-all rounded-sm font-semibold uppercase tracking-wider bg-white/50 dark:bg-transparent">
+                    <i class="fas fa-shopping-cart"></i> 
+                    <span class="lang-id">Pesan Buku via WhatsApp</span>
+                    <span class="lang-en">Order Books via WhatsApp</span>
+                    <span class="lang-jv">Pesen Buku lumantar WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="ebook" class="py-24 relative overflow-hidden bg-gray-50 dark:bg-[#100c0a] border-t border-jawa-gold/20 transition-colors duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <div class="flex items-center justify-center gap-4 mb-4">
+                    <div class="h-px bg-jawa-gold w-12"></div>
+                    <h2 class="font-serif text-4xl md:text-5xl text-jawa-gold">
+                        <span class="lang-id">Ebook Panduan</span>
+                        <span class="lang-en">Guide Ebooks</span>
+                        <span class="lang-jv">Ebook Panduan</span>
+                    </h2>
+                    <div class="h-px bg-jawa-gold w-12"></div>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    <span class="lang-id">Kumpulan panduan praktis digital marketing dan bisnis online untuk membantu Anda sukses di era digital.</span>
+                    <span class="lang-en">A collection of practical digital marketing and online business guides to help you succeed in the digital era.</span>
+                    <span class="lang-jv">Kumpulan panduan praktis digital marketing lan bisnis online kagem mbantu panjenengan sukses ing era digital.</span>
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Ebook 1 -->
+                <div class="glass-panel rounded-lg overflow-hidden flex flex-col hover:border-jawa-gold/50 transition-all duration-300 reveal group shadow-md dark:shadow-none bg-white dark:bg-transparent">
+                    <div class="relative h-[300px] overflow-hidden bg-gray-900 flex items-center justify-center">
+                        <img src="1.jpg" alt="Jualan Online Maksimal" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-4 text-center border-t border-jawa-gold/20">
+                        <h3 class="font-serif text-md font-bold text-jawa-dark dark:text-jawa-cream mb-1">Jualan Online Maksimal</h3>
+                    </div>
+                </div>
+
+                <!-- Ebook 2 -->
+                <div class="glass-panel rounded-lg overflow-hidden flex flex-col hover:border-jawa-gold/50 transition-all duration-300 reveal reveal-delay-1 group shadow-md dark:shadow-none bg-white dark:bg-transparent">
+                    <div class="relative h-[300px] overflow-hidden bg-gray-900 flex items-center justify-center">
+                        <img src="1.png" alt="Membuat Website Pakai Blogger" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-4 text-center border-t border-jawa-gold/20">
+                        <h3 class="font-serif text-md font-bold text-jawa-dark dark:text-jawa-cream mb-1">Website Pakai Blogger</h3>
+                    </div>
+                </div>
+
+                <!-- Ebook 3 -->
+                <div class="glass-panel rounded-lg overflow-hidden flex flex-col hover:border-jawa-gold/50 transition-all duration-300 reveal reveal-delay-2 group shadow-md dark:shadow-none bg-white dark:bg-transparent">
+                    <div class="relative h-[300px] overflow-hidden bg-gray-900 flex items-center justify-center">
+                        <img src="ChatGPT Image 5 Jun 2026, 19.42.49.png" alt="Konten Kreator Untuk Pemula" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-4 text-center border-t border-jawa-gold/20">
+                        <h3 class="font-serif text-md font-bold text-jawa-dark dark:text-jawa-cream mb-1">Konten Kreator Pemula</h3>
+                    </div>
+                </div>
+
+                <!-- Ebook 4 -->
+                <div class="glass-panel rounded-lg overflow-hidden flex flex-col hover:border-jawa-gold/50 transition-all duration-300 reveal group shadow-md dark:shadow-none bg-white dark:bg-transparent">
+                    <div class="relative h-[300px] overflow-hidden bg-gray-900 flex items-center justify-center">
+                        <img src="ChatGPT Image 24 Mei 2026, 14.00.08 - Salin(1).jpg" alt="Toko Online di Blogspot" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-105">
+                    </div>
+                    <div class="p-4 text-center border-t border-jawa-gold/20">
+                        <h3 class="font-serif text-md font-bold text-jawa-dark dark:text-jawa-cream mb-1">Toko Online di Blogspot</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center reveal">
+                <a href="https://wa.me/628551236277?text=Halo%20Bapak%20Latif,%20saya%20tertarik%20dengan%20Ebook%20Panduan%20Digital%20Bapak." target="_blank" class="inline-flex items-center gap-3 px-8 py-3 bg-jawa-gold/10 border border-jawa-gold text-jawa-dark dark:text-jawa-gold hover:bg-jawa-gold hover:text-white dark:hover:text-jawa-dark transition-all rounded-sm font-semibold uppercase tracking-wider text-sm">
+                    <i class="fab fa-whatsapp text-lg"></i> 
+                    <span class="lang-id">Pesan Ebook via WA</span>
+                    <span class="lang-en">Order Ebooks via WA</span>
+                    <span class="lang-jv">Pesen Ebook lumantar WA</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="karya-digital" class="py-24 relative bg-jawa-gold/10 dark:bg-jawa-brown/40 border-t border-jawa-gold/20 transition-colors duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <div class="flex items-center justify-center gap-4 mb-4">
+                    <div class="h-px bg-jawa-gold w-12"></div>
+                    <h2 class="font-serif text-4xl md:text-5xl text-jawa-gold">
+                        <span class="lang-id">Aplikasi & Platform Digital</span>
+                        <span class="lang-en">Digital Apps & Platforms</span>
+                        <span class="lang-jv">Aplikasi & Platform Digital</span>
+                    </h2>
+                    <div class="h-px bg-jawa-gold w-12"></div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                <!-- App 1 -->
+                <a href="https://ceritakitapublisher.web.id/#" target="_blank" class="glass-panel p-8 rounded-lg flex flex-col md:flex-row items-center md:items-start gap-6 hover:border-jawa-gold/80 hover:bg-white dark:hover:bg-jawa-brown/60 transition-all duration-300 reveal group cursor-pointer shadow-md dark:shadow-none">
+                    <div class="w-16 h-16 bg-white dark:bg-jawa-dark border border-jawa-gold/50 dark:border-jawa-gold/30 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-book-reader text-2xl text-jawa-gold"></i>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h3 class="font-serif text-2xl text-jawa-dark dark:text-jawa-cream mb-2 group-hover:text-jawa-gold transition-colors">Cerita Kita Publisher</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed">Platform penerbitan buku digital dan cetak untuk mewadahi karya inspiratif.</p>
+                        <span class="inline-flex items-center gap-2 text-jawa-gold text-sm font-semibold uppercase tracking-wider">Kunjungi <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <!-- App 2 -->
+                <a href="https://ptwebdigitalmarketing.my.id/" target="_blank" class="glass-panel p-8 rounded-lg flex flex-col md:flex-row items-center md:items-start gap-6 hover:border-jawa-gold/80 hover:bg-white dark:hover:bg-jawa-brown/60 transition-all duration-300 reveal reveal-delay-1 group cursor-pointer shadow-md dark:shadow-none">
+                    <div class="w-16 h-16 bg-white dark:bg-jawa-dark border border-jawa-gold/50 dark:border-jawa-gold/30 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-bullseye text-2xl text-jawa-gold"></i>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h3 class="font-serif text-2xl text-jawa-dark dark:text-jawa-cream mb-2 group-hover:text-jawa-gold transition-colors">Web Digital Marketing</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed">Layanan strategi pemasaran digital dan pembuatan website untuk memajukan UMKM.</p>
+                        <span class="inline-flex items-center gap-2 text-jawa-gold text-sm font-semibold uppercase tracking-wider">Kunjungi <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <!-- App 3 -->
+                <a href="http://resikresikmasjid.my.id/" target="_blank" class="glass-panel p-8 rounded-lg flex flex-col md:flex-row items-center md:items-start gap-6 hover:border-jawa-gold/80 hover:bg-white dark:hover:bg-jawa-brown/60 transition-all duration-300 reveal group cursor-pointer shadow-md dark:shadow-none">
+                    <div class="w-16 h-16 bg-white dark:bg-jawa-dark border border-jawa-gold/50 dark:border-jawa-gold/30 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-mosque text-2xl text-jawa-gold"></i>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h3 class="font-serif text-2xl text-jawa-dark dark:text-jawa-cream mb-2 group-hover:text-jawa-gold transition-colors">Resik Resik Masjid</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed">Gerakan sosial dan wadah kepedulian menjaga kebersihan tempat ibadah.</p>
+                        <span class="inline-flex items-center gap-2 text-jawa-gold text-sm font-semibold uppercase tracking-wider">Kunjungi <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <!-- App 4 -->
+                <a href="https://sumberejoberubag2027-tech.github.io/sumberejo-2027/" target="_blank" class="glass-panel p-8 rounded-lg flex flex-col md:flex-row items-center md:items-start gap-6 hover:border-jawa-gold/80 hover:bg-white dark:hover:bg-jawa-brown/60 transition-all duration-300 reveal reveal-delay-1 group cursor-pointer shadow-md dark:shadow-none">
+                    <div class="w-16 h-16 bg-white dark:bg-jawa-dark border border-jawa-gold/50 dark:border-jawa-gold/30 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-map-marked-alt text-2xl text-jawa-gold"></i>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h3 class="font-serif text-2xl text-jawa-dark dark:text-jawa-cream mb-2 group-hover:text-jawa-gold transition-colors">Sumberejo Berubah 2027</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed">Platform transformasi digital inovatif untuk memajukan Desa Sumberejo.</p>
+                        <span class="inline-flex items-center gap-2 text-jawa-gold text-sm font-semibold uppercase tracking-wider">Kunjungi <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <!-- App 5 -->
+                <a href="https://script.google.com/macros/s/AKfycbykYKeJ9Wdh1fY0LX2U9Dgov6siuOCCqV3CH0OE8tsfcmgqTCGcFwftDtcBgSo9jyYh6w/exec" target="_blank" class="glass-panel p-8 rounded-lg flex flex-col md:flex-row items-center md:items-start gap-6 hover:border-jawa-gold/80 hover:bg-white dark:hover:bg-jawa-brown/60 transition-all duration-300 reveal group cursor-pointer shadow-md dark:shadow-none">
+                    <div class="w-16 h-16 bg-white dark:bg-jawa-dark border border-jawa-gold/50 dark:border-jawa-gold/30 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-laptop-code text-2xl text-jawa-gold"></i>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h3 class="font-serif text-2xl text-jawa-dark dark:text-jawa-cream mb-2 group-hover:text-jawa-gold transition-colors">Aplikasi Layanan Digital</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed">Sistem informasi dan layanan mandiri terintegrasi untuk masyarakat.</p>
+                        <span class="inline-flex items-center gap-2 text-jawa-gold text-sm font-semibold uppercase tracking-wider">Buka Aplikasi <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <!-- App 6 -->
+                <a href="https://bpdsumberejoklaten-hue.github.io/lembaga-desa/" target="_blank" class="glass-panel p-8 rounded-lg flex flex-col md:flex-row items-center md:items-start gap-6 hover:border-jawa-gold/80 hover:bg-white dark:hover:bg-jawa-brown/60 transition-all duration-300 reveal reveal-delay-1 group cursor-pointer shadow-md dark:shadow-none">
+                    <div class="w-16 h-16 bg-white dark:bg-jawa-dark border border-jawa-gold/50 dark:border-jawa-gold/30 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-sitemap text-2xl text-jawa-gold"></i>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h3 class="font-serif text-2xl text-jawa-dark dark:text-jawa-cream mb-2 group-hover:text-jawa-gold transition-colors">Lembaga Desa Sumberejo</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed">Platform informasi profil dan struktur organisasi lembaga tingkat desa.</p>
+                        <span class="inline-flex items-center gap-2 text-jawa-gold text-sm font-semibold uppercase tracking-wider">Kunjungi <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+
+                <!-- App 7 -->
+                <a href="https://bpdsumberejoklaten-hue.github.io/DATA-BPD/" target="_blank" class="glass-panel p-8 rounded-lg flex flex-col md:flex-row items-center md:items-start gap-6 hover:border-jawa-gold/80 hover:bg-white dark:hover:bg-jawa-brown/60 transition-all duration-300 reveal group cursor-pointer shadow-md dark:shadow-none">
+                    <div class="w-16 h-16 bg-white dark:bg-jawa-dark border border-jawa-gold/50 dark:border-jawa-gold/30 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-database text-2xl text-jawa-gold"></i>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h3 class="font-serif text-2xl text-jawa-dark dark:text-jawa-cream mb-2 group-hover:text-jawa-gold transition-colors">Portal Data BPD</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed">
+                            <span class="lang-id">Pusat arsip dan pangkalan data digital BPD Sumberejo untuk transparansi.</span>
+                            <span class="lang-en">The archive center and digital database of Sumberejo's BPD for transparency.</span>
+                            <span class="lang-jv">Pusat arsip lan pangkalan data digital BPD Sumberejo kagem transparansi.</span>
+                        </p>
+                        <span class="inline-flex items-center gap-2 text-jawa-gold text-sm font-semibold uppercase tracking-wider">
+                            <span class="lang-id">Kunjungi</span><span class="lang-en">Visit</span><span class="lang-jv">Sowan</span> <i class="fas fa-arrow-right"></i>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- App 8: Media Desa Online -->
+                <a href="https://www.mediadesaonlininfo.web.id/" target="_blank" class="glass-panel p-8 rounded-lg flex flex-col md:flex-row items-center md:items-start gap-6 hover:border-jawa-gold/80 hover:bg-white dark:hover:bg-jawa-brown/60 transition-all duration-300 reveal group cursor-pointer shadow-md dark:shadow-none">
+                    <div class="w-16 h-16 bg-white dark:bg-jawa-dark border border-jawa-gold/50 dark:border-jawa-gold/30 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-newspaper text-2xl text-jawa-gold"></i>
+                    </div>
+                    <div class="text-center md:text-left">
+                        <h3 class="font-serif text-2xl text-jawa-dark dark:text-jawa-cream mb-2 group-hover:text-jawa-gold transition-colors">Media Desa Online</h3>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4 leading-relaxed">
+                            <span class="lang-id">Portal berita terkini seputar dinamika, potensi, dan informasi desa.</span>
+                            <span class="lang-en">Latest news portal regarding dynamics, potential, and village information.</span>
+                            <span class="lang-jv">Portal pawarta anyar babagan dinamika, potensi, lan informasi desa.</span>
+                        </p>
+                        <span class="inline-flex items-center gap-2 text-jawa-gold text-sm font-semibold uppercase tracking-wider">
+                            <span class="lang-id">Kunjungi</span><span class="lang-en">Visit</span><span class="lang-jv">Sowan</span> <i class="fas fa-arrow-right"></i>
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontak" class="py-24 relative overflow-hidden bg-white dark:bg-[#100c0a] transition-colors duration-500">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="glass-panel p-8 md:p-16 rounded-lg text-center reveal border border-jawa-gold/40 dark:border-jawa-gold/30 shadow-xl dark:shadow-[0_0_50px_rgba(0,0,0,0.5)] bg-white/70 dark:bg-jawa-dark/70">
+                <i class="fas fa-envelope-open-text text-4xl text-jawa-gold mb-6"></i>
+                <h2 class="font-serif text-4xl md:text-5xl text-jawa-dark dark:text-white mb-6">
+                    <span class="lang-id">Mari Menjalin Silaturahmi</span>
+                    <span class="lang-en">Let's Connect</span>
+                    <span class="lang-jv">Sumeleh Sesambetan Silaturahmi</span>
+                </h2>
+                <p class="text-gray-700 dark:text-gray-300 mb-10 max-w-2xl mx-auto font-light text-lg">
+                    <span class="lang-id">Apakah Anda memiliki gagasan, undangan kolaborasi, atau sekadar ingin berbincang? Pintu komunikasi selalu terbuka.</span>
+                    <span class="lang-en">Do you have ideas, collaboration invitations, or just want to talk? The door to communication is always open.</span>
+                    <span class="lang-jv">Punapa panjenengan kagungan gagasan, panyuwunan kolaborasi, utawi namung badhe imbal wacana? Pintu komunikasi tansah binuka.</span>
+                </p>
+                
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                    <a href="https://wa.me/628551236277" target="_blank" class="w-full sm:w-auto px-8 py-4 bg-[#25D366] text-white font-bold rounded hover:bg-[#1DA851] transition-all flex items-center justify-center gap-3 shadow-lg">
+                        <i class="fab fa-whatsapp text-2xl"></i> Chat WhatsApp (0855-1236-277)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-100 dark:bg-[#0c0907] border-t border-jawa-gold/30 dark:border-jawa-gold/20 py-8 relative transition-colors duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-center md:text-left flex flex-col items-center md:items-start">
+                <img src="WhatsApp_Image_2026-02-27_at_05.30.13-removebg-preview.png" alt="Logo Latif Safruddin" class="h-12 w-auto logo-img object-contain mb-2">
+                <p class="text-gray-600 dark:text-gray-500 text-sm mt-2">© 2026 Latif Safruddin. Hak Cipta Dilindungi.</p>
+            </div>
+            
+            <div class="flex space-x-6 mt-4 md:mt-0">
+                <a href="#" class="text-gray-500 hover:text-jawa-gold transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                <a href="#" class="text-gray-500 hover:text-jawa-gold transition-colors"><i class="fab fa-facebook-f text-xl"></i></a>
+                <a href="https://wa.me/628551236277" class="text-gray-500 hover:text-jawa-gold transition-colors"><i class="fab fa-whatsapp text-xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // -- Theme Toggle Logic (Light / Dark) --
+        const themeToggleBtns = [document.getElementById('theme-toggle'), document.getElementById('theme-toggle-mobile')];
+        const htmlElement = document.documentElement;
+        
+        // Load preference
+        if (localStorage.getItem('theme') === 'light') {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                htmlElement.classList.toggle('dark');
+                if (htmlElement.classList.contains('dark')) {
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+        });
+
+        // -- Language Toggle Logic --
+        const bodyElement = document.body;
+        const langSelectors = [document.getElementById('lang-selector'), document.getElementById('lang-selector-mobile')];
+        
+        // Load preference
+        const savedLang = localStorage.getItem('lang') || 'id';
+        setLanguage(savedLang);
+
+        langSelectors.forEach(selector => {
+            selector.value = savedLang;
+            selector.addEventListener('change', (e) => {
+                const selectedLang = e.target.value;
+                setLanguage(selectedLang);
+                localStorage.setItem('lang', selectedLang);
+                
+                // Sinkronisasi nilai dropdown (desktop & mobile)
+                langSelectors.forEach(s => s.value = selectedLang);
+            });
+        });
+
+        function setLanguage(langCode) {
+            bodyElement.classList.remove('lang-id', 'lang-en', 'lang-jv');
+            bodyElement.classList.add('lang-' + langCode);
+        }
+
+        // -- Navbar Scroll Effect --
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+
+        // -- Mobile Menu Toggle --
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+        
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => menu.classList.add('hidden'));
+        });
+
+        // -- Scroll Animations (Intersection Observer) --
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+    </script>
+</body>
+</html>
